@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+
+# Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
+
+description: Customer Support Bot Testing
+
+providers:
+  - echo
+
+prompts:
+  - file://prompts/customer-support.txt
+
+tests:
+  - vars:
+      question: "How can I reset my password?"
+    assert:
+      - type: contains
+        value: "password"
+
+  - vars:
+      question: "Where is my order?"
+    assert:
+      - type: contains
+        value: "order"
+       
